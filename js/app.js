@@ -1,4 +1,4 @@
-/*'use strict';
+'use strict';
 
 //TODO: Get users name via a prompt and display name through a custom greeting welcoming to site
 let userName = prompt ('Welcome to my biography site! What is your name?');
