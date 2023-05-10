@@ -99,5 +99,4 @@ if (
 
 //TODO: Display name back to user in final message via alert
 
-alert(`Thanks for stopping by ${userName}, hope you enjoyed playing the About-Me guessing game!!`);
-
+alert(`Thanks for stopping by ${userName}, hope you enjoyed playing the About-Me guessing game!`);
