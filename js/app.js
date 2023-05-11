@@ -7,10 +7,10 @@ alert(`Hello ${userName}! Nice to meet you! Lets play a guessing game about me..
 
 //TODO Prompt user for five yes or no questions, and alert user if answered correct or incorrect.
 // Do I live in California?
-// Do I have children?
-// Do I enjoy learning?
-// Do I like coding so far?
-// Am I enjoying Code Fellows?
+// Do I have prior experience in coding?
+// Has my prior job experience been related to the tech industry?
+// Do I enjoy coding so far?
+// Do I enjoy my courses with Code Fellows?
 
 let guessOne = prompt('Do I live in California?').toLowerCase();
 //console.log(guessOne);
@@ -29,38 +29,38 @@ if (
   //console.log('That is correct! I live in Texas!');
 }
 
-let guessTwo = prompt('Do I have children?').toLowerCase();
+let guessTwo = prompt('Do I have prior education in coding?').toLowerCase();
 //console.log(guessTwo);
 
 if (
   guessTwo === 'yes' ||
   guessTwo === 'y'
 ) {
-  alert('That is correct! I have 3 wonderful kids!');
-  //console.log('That is correct! I have 3 wonderful kids!');
+  alert('That is correct! I have some minor education in coding via Devry University and self-interest learning on the subject!');
+  //console.log('That is correct! I have some minor education in coding via Devry University and self-interest in the subject!');
 } else if (
   guessTwo === 'no' ||
   guessTwo === 'n'
 ) {
-  alert('That is incorrect! I do indeed have 3 wonderful kids!');
-  //console.log('That is incorrect! I do indeed have 3 wonderful kids!');
+  alert('That is incorrect! I have some minor education from Devry University and via self-paced learning on the subject.');
+  //console.log('That is incorrect! I have some minor education from Devry University and via self-paced learning on the subject.');
 }
 
-let guessThree = prompt('Do I enjoy learning?').toLowerCase();
+let guessThree = prompt('Has my prior job experience been related to the tech industry?').toLowerCase();
 //console.log(guessThree);
 
 if (
   guessThree === 'yes' ||
   guessThree === 'y'
 ) {
-  alert('That is correct! Learning new things is one of my favorite passions!');
-  //console.log('That is correct! Learning new things is one of my favorite passions!');
+  alert('That is incorrect! My prior job experience has been related to providing small business services, not in the tech industry!');
+  //console.log('That is incorrect! My prior job experience is in small business services not in the tech industry!');
 } else if (
   guessThree === 'no' ||
   guessThree === 'n'
 ) {
-  alert('That is incorrect! I love to learn new things!');
-  //console.log('That is incorrect! I love to learn new things!');
+  alert('That is correct! My prior job experience has been related to providing small business services, not in the tech industry!');
+  //console.log('My prior job experience has been related to providing small business services, not in the tech industry!');
 }
 
 let guessFour = prompt('Do I enjoy coding so far?').toLowerCase();
@@ -76,7 +76,7 @@ if (
   guessFour === 'no' ||
   guessFour === 'n'
 ) {
-  alert('That is incorrect! I enjoy the challenge of coding!');
+  alert('That is incorrect! I do in fact enjoy the challenge of coding!');
   //console.log('That is incorrect! I enjoy the challenge of coding!');
 }
 
@@ -87,14 +87,14 @@ if (
   guessFive === 'yes' ||
   guessFive === 'y'
 ) {
-  alert('That is correct! I do enjoy the courses with Code Fellows!');
-  //console.log('That is correct! I do enjoy the courses with Code Fellows!');
+  alert('That is correct! My goal is learn as much as possible with Code Fellows! I enjoy it very much!');
+  //console.log('That is correct! My goal is learn as much as possible with Code Fellows! I enjoy it very much!');
 } else if (
   guessFive === 'no' ||
   guessFive === 'n'
 ) {
-  alert('That is incorrect! I do in fact enjoy the courses with Code Fellows!');
-  //console.log('That is incorrect! I do in fact enjoy the courses with Code Fellows!');
+  alert('That is incorrect! My goal is learn as much as possible with Code Fellows! I enjoy it very much!');
+  //console.log('That is incorrect! My goal is learn as much as possible with Code Fellows! I enjoy it very much!');
 }
 
 //TODO: Display name back to user in final message via alert
