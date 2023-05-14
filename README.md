@@ -2,7 +2,14 @@
 
 ## Project Name: About-Me
 
-I built a guessing game with the theme About-Me. User responds to yes or no questions about me and receives feedback on whether question was answered correctly or not. Guessing game provides what user required via user story, such as greeting with user name, questions, and final message with user name included.  
+I built a guessing game with the theme About-Me. User responds to yes or no questions about me and receives feedback on whether question was answered correctly or not. Guessing game provides what user required via user story, such as greeting with user name, questions, and final message with user name included.
+
+### **Change log**
+
+May 14, 2023:
+
+* Added unordered and ordered list.
+* Modified JavaScript file to add loops.
 
 ### Author: Melodic Gonzalez
 
@@ -17,4 +24,3 @@ I built a guessing game with the theme About-Me. User responds to yes or no ques
 ### Reflections and Comments
 
 * I learned more about how to make JavaScript more legible by utilizing the tips in [Coding Style](https://javascript.info/coding-style#syntax) link provided in course work.
-* This is also a good place to reflect on the tools and resources used and learned
