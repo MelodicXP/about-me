@@ -27,15 +27,15 @@ header, footer {
  p,
  footer,
  #topTenMovies,
- #jobExperienceParagraph,
- #jobExperience {
+ #experienceParagraph,
+ #experience {
   margin: auto;
  }
 
 p,
 #topTenMovies,
-#jobExperienceParagraph,
-#jobExperience {
+#experienceParagraph,
+#experience {
   background-color: #0071bc;
   color: #ffffff;
   font-size: 135%;
@@ -81,14 +81,14 @@ p {
   margin-bottom: 75px;
  }
 
- #jobExperienceParagraph {
+ #experienceParagraph {
   border-bottom: none;
   margin: auto;
   margin-top: 0px;
   margin-bottom: 0px;
  }
 
- #jobExperience {
+ #experience {
   list-style-type: circle;
   border-top: none;
   margin: auto;
