@@ -11,54 +11,87 @@ body {
   flex-direction: column;
 }
 
-.title {
-  flex: 1 0 auto;
+header, footer {
+  background-color: #fdb81e; 
+  color: #212121;
+ }
+
+.basicLayout {
+  border: 3px solid white;
+  width: 50%; 
+  padding: 10px;
+}
+
+ header,
+ h2,
+ p,
+ footer,
+ #topTenMovies,
+ #jobExperienceParagraph,
+ #jobExperience {
+  margin: auto;
+ }
+
+p,
+#topTenMovies,
+#jobExperienceParagraph,
+#jobExperience {
+  background-color: #0071bc;
+  color: #ffffff;
+  font-size: 135%;
 }
 
 header {
-  background-color: #fdb81e; color: #212121;
-  border: 3px solid white;
   font-size: 300%;  
-  width: 50%;
   text-align: center;  
   margin: auto; /*centers items */ 
   margin-bottom: 75px;
   margin-top: 25px;
-  padding: 10px;   
 }  
 
 h2 {
   background-color: #2e8540;
   color: #ffffff;
-  border: 3px solid white;
-  width: 50%;
   font-size: 175%;
-  padding: 10px;
   margin: auto;
   text-align: center;
 }
 
 p {
-  width: 50%;
-  border: 3px solid white;
-  background-color: #0071bc;
-  color: #ffffff;
-  font-size: 135%;
-  padding: 10px;
   margin: auto;
   margin-top: 0px;
   margin-bottom: 75px;
  }
 
-footer {
-  margin: auto;
-  width: 50%;
-  text-align: center;
-  color: #ffffff;
-  flex-shrink: 0;
-  background-color: #fdb81e; color: #212121;
-  border: 3px solid white;
-  font-size: 120%;
-  padding: 10px;
+ li {
+  margin-left: 5%;
  }
 
+ footer {
+  margin: auto;
+  text-align: center;
+  flex-shrink: 0;
+  font-size: 120%;
+ }
+
+ #topTenMovies {
+  list-style-type: decimal;
+  margin: auto;
+  margin-top: 0px;
+  margin-bottom: 75px;
+ }
+
+ #jobExperienceParagraph {
+  border-bottom: none;
+  margin: auto;
+  margin-top: 0px;
+  margin-bottom: 0px;
+ }
+
+ #jobExperience {
+  list-style-type: circle;
+  border-top: none;
+  margin: auto;
+  margin-top: 0px;
+  margin-bottom: 75px;
+ }
