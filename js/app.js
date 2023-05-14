@@ -6,12 +6,8 @@ let userName = prompt ('Welcome to my biography site! What is your name?');
 alert(`Hello ${userName}! Nice to meet you! Lets play a guessing game about me...please answer yes or no`);
 
 //TODO Prompt user for five yes or no questions, and alert user if answered correct or incorrect.
-// Do I live in California?
-// Do I have prior experience in coding?
-// Has my prior job experience been related to the tech industry?
-// Do I enjoy coding so far?
-// Do I enjoy my courses with Code Fellows?
 
+//todo Question #1
 let guessOne = prompt('Do I live in California?').toLowerCase();
 //console.log(guessOne);
 
@@ -29,6 +25,7 @@ if (
   //console.log('That is correct! I live in Texas!');
 }
 
+//todo Question #2
 let guessTwo = prompt('Do I have prior education in coding?').toLowerCase();
 //console.log(guessTwo);
 
@@ -46,6 +43,7 @@ if (
   //console.log('That is incorrect! I have some minor education from Devry University and via self-paced learning on the subject.');
 }
 
+//todo Question #3
 let guessThree = prompt('Has my prior job experience been related to the tech industry?').toLowerCase();
 //console.log(guessThree);
 
@@ -63,6 +61,7 @@ if (
   //console.log('My prior job experience has been related to providing small business services, not in the tech industry!');
 }
 
+//todo Question #4
 let guessFour = prompt('Do I enjoy coding so far?').toLowerCase();
 //console.log(guessFour);
 
@@ -80,6 +79,7 @@ if (
   //console.log('That is incorrect! I enjoy the challenge of coding!');
 }
 
+//todo Question #5
 let guessFive = prompt('Do I enjoy my courses with Code Fellows?').toLowerCase();
 //console.log(guessFive);
 
@@ -95,6 +95,43 @@ if (
 ) {
   alert('That is incorrect! My goal is learn as much as possible with Code Fellows! I enjoy it very much!');
   //console.log('That is incorrect! My goal is learn as much as possible with Code Fellows! I enjoy it very much!');
+}
+
+//todo Question #6
+let guessSix = prompt ('Now its time to guess a number between 1 and 20! You only have four attempts! Good luck!');
+let guessSixInt = Number(guessSix);
+let correctNum = 13;
+let numOfGuess = 3;
+
+if (guessSixInt === correctNum) {
+  alert(`That is correct! You guessed the number ${correctNum}!`);
+}
+
+while (
+  guessSixInt !== correctNum &&
+  numOfGuess > 0
+) {
+  if (guessSixInt > correctNum) {
+    guessSix = prompt (`That is too high! Try again. You have ${numOfGuess} attempts left!`);
+    guessSixInt = Number(guessSix);
+    if (guessSixInt === correctNum) {
+      alert(`That is correct! You guessed the number ${correctNum}!`);
+    }
+  } else if (guessSixInt < correctNum) {
+    guessSix = prompt (`That is too low! You have ${numOfGuess} attempts left!`);
+    guessSixInt = Number(guessSix);
+    if (guessSixInt === correctNum) {
+      alert(`That is correct! You guessed the number ${correctNum}!`);
+    }
+  }
+  numOfGuess--;
+}
+
+if (
+  numOfGuess === 0 &&
+  guessSixInt !== correctNum
+) {
+  alert(`You have run out of attempts! The correct number is ${correctNum}!`);
 }
 
 //TODO: Display name back to user in final message via alert
