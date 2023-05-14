@@ -134,6 +134,7 @@ if (
   alert(`You have run out of attempts! The correct number is ${correctNum}!`);
 }
 
-//TODO: Display name back to user in final message via alert
+//todo Question #7
 
+//TODO: Display name back to user in final message via alert
 alert(`Thanks for stopping by ${userName}, hope you enjoyed playing the About-Me guessing game!`);
