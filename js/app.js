@@ -98,29 +98,27 @@ if (
 }
 
 //todo Question #6
-let guessSix = prompt ('Now its time to guess a number between 1 and 20! You only have four attempts! Good luck!');
-let guessSixInt = Number(guessSix);
+//Number() converts input in integer value
+let guessSix = Number( prompt('Now its time to guess a number between 1 and 20! You only have four attempts! Good luck!') );
 let correctNum = 13;
 let numOfGuess = 3;
 
-if (guessSixInt === correctNum) {
+if (guessSix === correctNum) {
   alert(`That is correct! You guessed the number ${correctNum}!`);
 }
 
 while (
-  guessSixInt !== correctNum &&
+  guessSix !== correctNum &&
   numOfGuess > 0
 ) {
-  if (guessSixInt > correctNum) {
-    guessSix = prompt (`That is too high! Try again. You have ${numOfGuess} attempts left!`);
-    guessSixInt = Number(guessSix);
-    if (guessSixInt === correctNum) {
+  if (guessSix > correctNum) {
+    guessSix = Number( prompt(`That is too high! Try again. You have ${numOfGuess} attempts left!`) );
+    if (guessSix === correctNum) {
       alert(`That is correct! You guessed the number ${correctNum}!`);
     }
-  } else if (guessSixInt < correctNum) {
-    guessSix = prompt (`That is too low! You have ${numOfGuess} attempts left!`);
-    guessSixInt = Number(guessSix);
-    if (guessSixInt === correctNum) {
+  } else if (guessSix < correctNum) {
+    guessSix = Number( prompt(`That is too low! You have ${numOfGuess} attempts left!`) );
+    if (guessSix === correctNum) {
       alert(`That is correct! You guessed the number ${correctNum}!`);
     }
   }
@@ -129,7 +127,7 @@ while (
 
 if (
   numOfGuess === 0 &&
-  guessSixInt !== correctNum
+  guessSix !== correctNum
 ) {
   alert(`You have run out of attempts! The correct number is ${correctNum}!`);
 }
