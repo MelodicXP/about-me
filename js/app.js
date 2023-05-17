@@ -25,7 +25,7 @@ if (
   alert('That is correct! I live in Texas!');
   score++;
   // console.log(score)
-};
+}
 
 //todo Question #2
 let guessTwo = prompt('Do I have prior education in coding?').toLowerCase();
