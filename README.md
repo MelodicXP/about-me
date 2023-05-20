@@ -6,6 +6,10 @@ I built a guessing game with the theme About-Me. User responds to yes or no ques
 
 ### **Change log**
 
+May 23, 2023
+
+* Fix bugs to ensure user enters a valid response to prompt questions
+
 May 20, 2023
 
 * Consolidate question 1 thru 5 into one function
@@ -33,6 +37,7 @@ May 14, 2023:
 
 ### Lighthouse Accessibility Report Score
 
+* 05/23/2023: Click [here](img/LightHouseScreenshot05232023.jpg) for screenshot of score after running a Lighthouse Accessibility report (score is 100).
 * 05/20/2023: Click [here](img/LightHouseScreenshot05202023.jpg) for screenshot of score after running a Lighthouse Accessibility report (score is 100).
 * 5/16/2023: Click [here](img/LightHouseScreenshot05162023.jpg) for screenshot of score after running a Lighthouse Accessibility report (score is 100).  
 * 5/10/2023: Click [here](img/LightHouseScreenshot.jpg) for screenshot of score after running a Lighthouse Accessibility report (score is 100).
@@ -40,4 +45,5 @@ May 14, 2023:
 ### Reflections and Comments
 
 * I learned to be patient when re-working code to make it more efficient.
+* I learned about for loops and how to check against different conditions for variables.
 * I learned more about how to make JavaScript more legible by utilizing the tips in [Coding Style](https://javascript.info/coding-style#syntax) link provided in course work.
