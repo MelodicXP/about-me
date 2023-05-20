@@ -86,6 +86,16 @@ function questionSix () {
   for (let i = 0; i < 4; i++) {
     let guess = Number( prompt(`Guess a number between 1 thru 15, you have ${4 - i} of 4 attempts left!`) );
 
+    if (
+      guess === '' ||
+      (isNaN(guess)) ||
+      guess > 15 ||
+      guess < 1
+    ) {
+      alert('Invalid entry, please enter a valid response! (Number between 1 - 15)');
+      i = i - 1;
+    }
+
     if (guess === correctNum) {
       alert(`That is correct! You guessed the number ${correctNum}!`);
       score++;
