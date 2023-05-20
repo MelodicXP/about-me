@@ -139,6 +139,13 @@ function questionSeven () {
     let movie;
     let guess = prompt(`Enter guess, you have ${ (6 - i) } of 6 attempts left!`).toLowerCase();
 
+    //If user doesn't enter anything will prompt user for valid response
+    // (!guess) is the same as (guess === '') both check for empty string;
+    if (!guess) {
+      alert('Your guess was blank, please enter a valid response! (Guess my favorite movie)');
+      i = i - 1;
+    }
+
     //Loop for checking if guess is correct against the array
     for (let j = 0; j < topTenMovies.length; j++) {
 
@@ -155,7 +162,7 @@ function questionSeven () {
     //If value stored from array in variable named 'movie' does NOT match guess then display attempts left
     if (guess === movie) {
       break;
-    } else if (guess !== movie) {
+    } else if (guess !== movie && guess) { //checks if guess was not equal to the movie and that there is a string input by user
       alert('That is not correct!');
     }
 
