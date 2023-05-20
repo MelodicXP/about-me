@@ -86,6 +86,7 @@ function questionSix () {
     if (guess === correctNum) {
       alert(`That is correct! You guessed the number ${correctNum}!`);
       score++;
+      alert(`Your current score so far is ${score} points!`);
       break;
     } else if (guess > correctNum) {
       alert(`${guess} is too high!`);
@@ -103,51 +104,56 @@ function questionSix () {
 questionSix();
 
 //todo Question #7
-//Establish array and variables
-let topTenMovies = [
-  'the matrix',
-  'inception',
-  'shutter island',
-  'good will hunting',
-  'whiplash',
-  'christmas vacation',
-  'blades of glory',
-  'john wick',
-  'the mask',
-  'grease'
-];
 
-let numOfGuess = 5; // re-initializing to 5, previously used variable numOfGuess
-let guessSeven = prompt ('Next lets see if you can guess one of my favorite movies! You have six attempts!').toLowerCase();
+function questionSeven () {
+  let topTenMovies = [
+    'the matrix',
+    'inception',
+    'shutter island',
+    'good will hunting',
+    'whiplash',
+    'christmas vacation',
+    'blades of glory',
+    'john wick',
+    'the mask',
+    'grease'
+  ];
 
-//Loop for number of guesses
-for (let i = 0; i < numOfGuess; i++) {
-  let movie; //Need this variable to be used later to compare if user prompt matched movie
+  alert ('Guess one of my favorite movies! You have a total of 6 attempts!');
 
-  //Loop for checking if guess is correct against the array
-  for (let j = 0; j < topTenMovies.length; j++) {
+  //Loop for number of guesses
+  for (let i = 0; i < 6; i++) {
+    let movie;
+    let guess = prompt(`Enter guess, you have ${ (6 - i) } of 6 attempts left!`).toLowerCase();
 
-    if (topTenMovies[j] === guessSeven) {
-      alert (`That is correct! ${guessSeven} is my one of my favorite movies! Here is my full list of top ten favorite movies: ${topTenMovies.toString()}`);
-      movie = topTenMovies[j];
-      score++;
-      break; //If correct breaks out of interior for loop
+    //Loop for checking if guess is correct against the array
+    for (let j = 0; j < topTenMovies.length; j++) {
+
+      if (guess === topTenMovies[j]) {
+        alert (`That is correct! ${guess} is my one of my favorite movies! Here is my full list of top ten favorite movies: ${topTenMovies.toString()}`);
+        score++;
+        alert(`Your current score so far is ${score} points!`);
+        movie = topTenMovies[j]; //movia variable stores movie from array
+        break; //breaks out of inner loop 'j'
+      }
+    }
+
+    //If value stored from array in variable named'movie' matches guess then 'break' out of exterior for loop
+    //If value stored from array in variable named 'movie' does NOT match guess then display attempts left
+    if (guess === movie) {
+      break;
+    } else if (guess !== movie) {
+      alert('That is not correct!');
+    }
+
+    //Once last attempt used, display ran out attempts and who list from array.
+    if (i === 5) {
+      alert ('You have run out of tries! Here is my full list of top ten favorite movies: ' + topTenMovies.toString() );
     }
   }
-
-  //If value stored from array in variable named'movie' matches guess then 'break' out of exterior for loop
-  //If value stored from array in variable named 'movie' does NOT match guess then display attempts left
-  if (movie === guessSeven) {
-    break;
-  } else if (movie !== guessSeven) {
-    guessSeven = prompt (`That is not correct! You have ${ (numOfGuess - i) } attempts left!`).toLowerCase();
-  }
-
-  //Once last attempt used, display ran out attempts and who list from array.
-  if (i === numOfGuess - 1) {
-    alert ('You have run out of tries! Here is my full list of top ten favorite movies: ' + topTenMovies.toString() );
-  }
 }
+
+questionSeven();
 
 //TODO: Display name back to user in final message via alert
 alert(`Thanks for playing the About-Me guessing game ${userName}! You achieved a score of ${score} points! Hope you had fun!`);
