@@ -141,7 +141,7 @@ function questionSeven () {
 
     //If user doesn't enter anything will prompt user for valid response
     // (!guess) is the same as (guess === '') both check for empty string;
-    if (!guess) {
+    if (guess === '') {
       alert('Your guess was blank, please enter a valid response! (Guess my favorite movie)');
       i = i - 1;
     }
