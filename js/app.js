@@ -10,136 +10,97 @@ alert(`Hello ${userName}! Nice to meet you! Lets play a guessing game about me..
 
 //TODO Prompt user for five yes or no questions, and alert user if answered correct or incorrect.
 
-//todo Question #1
-let guessOne = prompt('Do I live in California?').toLowerCase();
+function questionOneThruFive() {
+  let questions = [
+    'Do I live in California?',
+    'Do I have prior education in coding?',
+    'Has my prior job experience been related to the tech industry?',
+    'Do I enjoy coding so far?',
+    'Do I enjoy my courses with Code Fellows?'
+  ];
 
-if (
-  guessOne === 'yes' ||
-  guessOne === 'y'
-) {
-  alert('That is incorrect! I don\'t live in California I live Texas!');
-} else if (
-  guessOne === 'no' ||
-  guessOne === 'n'
-) {
-  alert('That is correct! I live in Texas!');
-  score++;
-  // console.log(score)
-}
+  let yesAnswers = [
+    'That is incorrect! I live in Texas!',
+    'That is correct! I have some minor education in coding via Devry University and self-interest learning on the subject!',
+    'That is incorrect! My prior job experience has been related to providing small business services, not in the tech industry!',
+    'That is correct! Coding is a fun challenge!',
+    'That is correct! My goal is learn as much as possible with Code Fellows! I enjoy it very much!'
+  ];
 
-//todo Question #2
-let guessTwo = prompt('Do I have prior education in coding?').toLowerCase();
+  let noAnswers = [
+    'That is correct! I live in Texas!',
+    'That is incorrect! I have some minor education from Devry University and via self-paced learning on the subject.',
+    'That is correct! My prior job experience has been related to providing small business services, not in the tech industry!',
+    'That is incorrect! I do in fact enjoy the challenge of coding!',
+    'That is incorrect! My goal is learn as much as possible with Code Fellows! I enjoy it very much!'
+  ];
 
-if (
-  guessTwo === 'yes' ||
-  guessTwo === 'y'
-) {
-  alert('That is correct! I have some minor education in coding via Devry University and self-interest learning on the subject!');
-  score++;
-} else if (
-  guessTwo === 'no' ||
-  guessTwo === 'n'
-) {
-  alert('That is incorrect! I have some minor education from Devry University and via self-paced learning on the subject.');
-}
+  for (let i = 0; i < 5; i++) {
+    let guess = prompt(questions[i]).toLowerCase();
+    let yes;
+    let no;
 
-//todo Question #3
-let guessThree = prompt('Has my prior job experience been related to the tech industry?').toLowerCase();
-
-if (
-  guessThree === 'yes' ||
-  guessThree === 'y'
-) {
-  alert('That is incorrect! My prior job experience has been related to providing small business services, not in the tech industry!');
-} else if (
-  guessThree === 'no' ||
-  guessThree === 'n'
-) {
-  alert('That is correct! My prior job experience has been related to providing small business services, not in the tech industry!');
-  score++;
-}
-
-//todo Question #4
-let guessFour = prompt('Do I enjoy coding so far?').toLowerCase();
-
-if (
-  guessFour === 'yes' ||
-  guessFour === 'y'
-) {
-  alert('That is correct! Coding is a fun challenge!');
-  score++;
-} else if (
-  guessFour === 'no' ||
-  guessFour === 'n'
-) {
-  alert('That is incorrect! I do in fact enjoy the challenge of coding!');
-}
-
-//todo Question #5
-let guessFive = prompt('Do I enjoy my courses with Code Fellows?').toLowerCase();
-
-if (
-  guessFive === 'yes' ||
-  guessFive === 'y'
-) {
-  alert('That is correct! My goal is learn as much as possible with Code Fellows! I enjoy it very much!');
-  score++;
-} else if (
-  guessFive === 'no' ||
-  guessFive === 'n'
-) {
-  alert('That is incorrect! My goal is learn as much as possible with Code Fellows! I enjoy it very much!');
-}
-
-//todo Question #6
-//Establish variables
-//Number() converts input in integer value
-let guessSix = Number( prompt('Now its time to guess a number between 1 and 20! You only have four attempts! Good luck!') );
-let correctNum = 13;
-let numOfGuess = 3;
-
-if (guessSix === correctNum) {
-  alert(`That is correct! You guessed the number ${correctNum}!`);
-  score++;
-}
-
-//Loop for the four attempts at guessing correct number
-while (
-  guessSix !== correctNum &&
-  numOfGuess > 0
-) {
-
-  //If too high
-  if (guessSix > correctNum) {
-    guessSix = Number( prompt(`That is too high! Try again. You have ${numOfGuess} attempts left!`) );
-
-    //If correct
-    if (guessSix === correctNum) {
-      alert(`That is correct! You guessed the number ${correctNum}!`);
-      score++;
+    if (guess === '') {
+      alert('Nothing entered please enter a valid response! (Yes or No)');
+      i = i - 1;
     }
 
-    //If too low
-  } else if (guessSix < correctNum) {
-    guessSix = Number( prompt(`That is too low! You have ${numOfGuess} attempts left!`) );
+    if (
+      guess === 'yes' ||
+      guess === 'y'
+    ) {
+      alert( yesAnswers[i] );
+      yes = yesAnswers[i];
+    } else if (
+      guess === 'no' ||
+      guess === 'n'
+    ) {
+      alert( noAnswers[i] );
+      no = noAnswers[i];
+    }
 
-    //If correct
-    if (guessSix === correctNum) {
-      alert(`That is correct! You guessed the number ${correctNum}!`);
+    if (
+      yes === yesAnswers[1] ||
+      yes === yesAnswers[3] ||
+      yes === yesAnswers[4] ||
+      no === noAnswers[0] ||
+      no === noAnswers[2]
+    ) {
       score++;
+      alert(`Your current score so far is ${score} points!`);
     }
   }
-  //Decreases number of attempts
-  numOfGuess--;
+
 }
 
-//If attempts exhausted and didn't guess correct number, show correct number
-if (
-  numOfGuess === 0 &&
-  guessSix !== correctNum
-) {
-  alert(`You have run out of attempts! The correct number is ${correctNum}!`);
+questionOneThruFive();
+
+//todo Question #6
+
+function questionSix () {
+  let correctNum = 13;
+
+  for (let i = 0; i < 4; i++) {
+    let guess = Number( prompt(`Guess a number between 1 thru 15, you have ${4 - i} of 4 attempts left!`) );
+
+    if (guess === correctNum) {
+      alert(`That is correct! You guessed the number ${correctNum}!`);
+      score++;
+      break;
+    } else if (guess > correctNum) {
+      alert(`${guess} is too high!`);
+    } else if (guess < correctNum) {
+      alert(`${guess} is too low!`);
+    }
+
+    if (i === 3) {
+      alert(`You have run out of attempts! The correct number is ${correctNum}!`);
+    }
+  }
+
 }
+
+questionSix();
 
 //todo Question #7
 //Establish array and variables
@@ -156,7 +117,7 @@ let topTenMovies = [
   'grease'
 ];
 
-numOfGuess = 5; // re-initializing to 5, previously used variable numOfGuess
+let numOfGuess = 5; // re-initializing to 5, previously used variable numOfGuess
 let guessSeven = prompt ('Next lets see if you can guess one of my favorite movies! You have six attempts!').toLowerCase();
 
 //Loop for number of guesses
