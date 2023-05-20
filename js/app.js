@@ -162,7 +162,7 @@ function questionSeven () {
     //If value stored from array in variable named 'movie' does NOT match guess then display attempts left
     if (guess === movie) {
       break;
-    } else if (guess !== movie && guess) { //checks if guess was not equal to the movie and that there is a string input by user
+    } else if (guess !== movie && typeof guess === 'string') { //checks if guess was not equal to the movie and that there is a string input by user
       alert('That is not correct!');
     }
 
