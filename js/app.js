@@ -40,8 +40,11 @@ function questionOneThruFive() {
     let yes;
     let no;
 
-    if (guess === '') {
-      alert('Nothing entered please enter a valid response! (Yes or No)');
+    if (
+      guess === '' ||
+      (guess !== 'y' && guess !== 'yes' && guess !== 'n' && guess !== 'no')
+    ) {
+      alert('Invalid entry, please enter a valid response! (Yes or No)');
       i = i - 1;
     }
 
