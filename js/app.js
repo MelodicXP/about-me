@@ -1,16 +1,14 @@
 'use strict';
 
-//Initialize score
 let score = 0;
-
-//TODO: Get users name via a prompt and display name through a custom greeting welcoming to site
 let userName = prompt ('Welcome to my biography site! What is your name?');
 
-alert(`Hello ${userName}! Nice to meet you! Lets play a guessing game about me...please answer yes or no. (Answer as many questions correctly to achieve the highest score possible!)`);
+let welcomeUserToPage = () => {
+  alert(`Hello ${userName}! Nice to meet you! Lets play a guessing game about me...please answer yes or no. (Answer as many questions correctly to achieve the highest score possible!)`);
+}
 
-//TODO Prompt user for five yes or no questions, and alert user if answered correct or incorrect.
-
-function questionOneThruFive() {
+// Prompt user for five yes or no questions, and alert user if answered correct or incorrect.
+function playAboutMeGuessingGame() {
   let questions = [
     'Do I live in California?',
     'Do I have prior education in coding?',
@@ -37,13 +35,11 @@ function questionOneThruFive() {
 
   for (let i = 0; i < 5; i++) {
     let guess = prompt(questions[i]).toLowerCase();
-    let yes;
-    let no;
+    const validResponses = ['y', 'yes', 'n', 'no'];
+    let yesAnswer;
+    let noAnswer;
 
-    if (
-      guess === '' ||
-      (guess !== 'y' && guess !== 'yes' && guess !== 'n' && guess !== 'no')
-    ) {
+    if (guess === '' || !validResponses.includes(guess.toLowerCase())) {
       alert('Invalid entry, please enter a valid response! (Yes or No)');
       i = i - 1;
     }
@@ -53,30 +49,30 @@ function questionOneThruFive() {
       guess === 'y'
     ) {
       alert( yesAnswers[i] );
-      yes = yesAnswers[i];
+      yesAnswer = yesAnswers[i];
     } else if (
       guess === 'no' ||
       guess === 'n'
     ) {
       alert( noAnswers[i] );
-      no = noAnswers[i];
+      noAnswer = noAnswers[i];
     }
 
     if (
-      yes === yesAnswers[1] ||
-      yes === yesAnswers[3] ||
-      yes === yesAnswers[4] ||
-      no === noAnswers[0] ||
-      no === noAnswers[2]
+      yesAnswer === yesAnswers[1] ||
+      yesAnswer === yesAnswers[3] ||
+      yesAnswer === yesAnswers[4] ||
+      noAnswer === noAnswers[0] ||
+      noAnswer === noAnswers[2]
     ) {
       score++;
       alert(`Your current score so far is ${score} points!`);
     }
   }
-
 }
 
-questionOneThruFive();
+welcomeUserToPage();
+playAboutMeGuessingGame();
 
 //todo Question #6
 
