@@ -1,14 +1,14 @@
 'use strict';
 
 let score = 0;
-let userName = prompt ('Welcome to my biography site! What is your name?');
 
 let welcomeUserToPage = () => {
+  let userName = prompt ('Welcome to my biography site! What is your name?');
   alert(`Hello ${userName}! Nice to meet you! Lets play a guessing game about me...please answer yes or no. (Answer as many questions correctly to achieve the highest score possible!)`);
 }
 
-// Prompt user for five yes or no questions, and alert user if answered correct or incorrect.
-function playAboutMeGuessingGame() {
+// Function to play a game asking user questions about the developer.
+let playAboutMeGuessingGame = () => {
   let questions = [
     'Do I live in California?',
     'Do I have prior education in coding?',
@@ -32,43 +32,49 @@ function playAboutMeGuessingGame() {
     'That is incorrect! I do in fact enjoy the challenge of coding!',
     'That is incorrect! My goal is learn as much as possible with Code Fellows! I enjoy it very much!'
   ];
+  
+  const validResponses = ['y', 'yes', 'n', 'no'];
 
-  for (let i = 0; i < 5; i++) {
-    let guess = prompt(questions[i]).toLowerCase();
-    const validResponses = ['y', 'yes', 'n', 'no'];
-    let yesAnswer;
-    let noAnswer;
+  for (let i = 0; i < questions.length; i++) {
+    let userResponse = getUserResponse(questions[i], validResponses);
+    let correctAnswer = userResponse === 'y' || userResponse === 'yes' ? yesAnswers[i] : noAnswers[i];
 
-    if (guess === '' || !validResponses.includes(guess.toLowerCase())) {
-      alert('Invalid entry, please enter a valid response! (Yes or No)');
-      i = i - 1;
-    }
+    alert(correctAnswer);
 
-    if (
-      guess === 'yes' ||
-      guess === 'y'
-    ) {
-      alert( yesAnswers[i] );
-      yesAnswer = yesAnswers[i];
-    } else if (
-      guess === 'no' ||
-      guess === 'n'
-    ) {
-      alert( noAnswers[i] );
-      noAnswer = noAnswers[i];
-    }
-
-    if (
-      yesAnswer === yesAnswers[1] ||
-      yesAnswer === yesAnswers[3] ||
-      yesAnswer === yesAnswers[4] ||
-      noAnswer === noAnswers[0] ||
-      noAnswer === noAnswers[2]
-    ) {
+    if (isCorrectAnswer(userResponse, i)) {
       score++;
-      alert(`Your current score so far is ${score} points!`);
+      alert(`You're current score is ${score} point(s)!`);
     }
   }
+}
+
+// Function to get a valid response from user
+let getUserResponse = (question, validResponses) => {
+  let response = '';
+
+  do {
+    response = prompt(question).toLowerCase();
+    if (!validResponses.includes(response)) {
+      alert('Invalid entry, please enter a valid response! (Yes or No)')
+    }
+  } while (!validResponses.includes(response));
+
+  return response;
+} 
+
+let isCorrectAnswer = (response, index) => {
+  const correctYesIndices = [1, 3, 4];
+  const correctNoIndices = [0, 2];
+
+  if ((response === 'y' || response === 'yes') && correctYesIndices.includes(index)) {
+    return true;
+  }
+
+  if ((response === 'n' || response === 'no') && correctNoIndices.includes(index)) {
+    return true;
+  }
+
+  return false;
 }
 
 welcomeUserToPage();
