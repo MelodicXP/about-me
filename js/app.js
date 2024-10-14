@@ -8,6 +8,17 @@ let welcomeUserToPage = () => {
 
 // Function to play a game asking user questions about the developer.
 let playAboutMeGuessingGame = (username) => {
+  let score = 0;
+
+  score += askQuestionOneThruFive();
+  score += askQuestionSix();
+  score += askQuestionSeven();
+
+  alert(`Thanks for playing the About-Me guessing game, ${userName}! You achieved a score of ${score} points! Hope you had fun!`);
+}
+
+let askQuestionOneThruFive = () => {
+  let score = 0;
   const questions = [
     {
       question:'Do I live in California?',
@@ -40,7 +51,6 @@ let playAboutMeGuessingGame = (username) => {
       responseNo:'That is incorrect! My goal is learn as much as possible with Code Fellows! I enjoy it very much!'
     }
   ];
-  let score = 0;
   const validResponses = ['y', 'yes', 'n', 'no'];
 
   for (let i = 0; i < questions.length; i++) {
@@ -55,12 +65,8 @@ let playAboutMeGuessingGame = (username) => {
       alert(`You're current score so far is ${score} point(s)!`);
     }
   }
-
-  score += askQuestionSix();
-  score += askQuestionSeven();
-
-  alert(`Thanks for playing the About-Me guessing game, ${userName}! You achieved a score of ${score} points! Hope you had fun!`);
-}
+  return score;
+};
 
 // Function to get a valid response from user
 let getUserResponse = (question, validResponses) => {
@@ -91,22 +97,18 @@ let isCorrectAnswer = (response, index) => {
   return false;
 }
 
-
 let askQuestionSix = () => {
   const correctNum = 13;
-  
+  let score = 0;
+
   for (let i = 0; i < 4; i++) {
     let userResponse = Number(prompt(`Guess a number between 1 thru 15, you have ${4 - i} of 4 attempts left!`));
     
-    if (
-      userResponse === '' ||
-      (isNaN(userResponse)) ||
-      userResponse > 15 ||
-      userResponse < 1
-    ) {
-      alert('Invalid entry, please enter a valid response! (Number between 1 - 15)');
-      i = i - 1;
-    }
+    if (isNaN(userResponse) || userResponse < 1 || userResponse > 15) {
+      alert('Invalid entry, please enter a valid number between 1 and 15.');
+      i--;
+      continue;
+    } 
     
     if (userResponse === correctNum) {
       alert(`That is correct! You guessed the number ${correctNum}!`);
@@ -115,7 +117,7 @@ let askQuestionSix = () => {
       break;
     } else if (userResponse > correctNum) {
       alert(`${userResponse} is too high!`);
-    } else if (userResponse < correctNum) {
+    } else {
       alert(`${userResponse} is too low!`);
     }
     
@@ -123,11 +125,8 @@ let askQuestionSix = () => {
       alert(`You have run out of attempts! The correct number is ${correctNum}!`);
     }
   }
+  return score;
 }
-
-// askQuestionSix();
-
-//todo Question #7
 
 let askQuestionSeven = () => {
   let topTenMovies = [
@@ -142,52 +141,39 @@ let askQuestionSeven = () => {
     'the mask',
     'grease'
   ];
+
+  let score = 0;
   
   alert ('Guess one of my favorite movies! You have a total of 6 attempts!');
   
   //Loop for number of guesses
   for (let i = 0; i < 6; i++) {
     let movie;
-    let guess = prompt(`Enter guess, you have ${ (6 - i) } of 6 attempts left!`).toLowerCase();
+    let userResponse = prompt(`Enter guess, you have ${ (6 - i) } of 6 attempts left!`).toLowerCase();
     
     //If user doesn't enter anything will prompt user for valid response
     // (!guess) is the same as (guess === '') both check for empty string;
-    if (!guess) {
+    if (!userResponse) {
       alert('Your guess was blank, please enter a valid response! (Guess my favorite movie)');
       i = i - 1;
+      continue;
     }
     
-    //Loop for checking if guess is correct against the array
-    for (let j = 0; j < topTenMovies.length; j++) {
-      
-      if (guess === topTenMovies[j]) {
-        alert (`That is correct! ${guess} is my one of my favorite movies! Here is my full list of top ten favorite movies: ${topTenMovies.toString()}`);
-        score++;
-        alert(`Your current score so far is ${score} points!`);
-        movie = topTenMovies[j]; //movia variable stores movie from array
-        break; //breaks out of inner loop 'j'
-      }
-    }
-    
-    //If value stored from array in variable named'movie' matches guess then 'break' out of exterior for loop
-    //If value stored from array in variable named 'movie' does NOT match guess then display attempts left
-    if (guess === movie) {
+    if (topTenMovies.includes(userResponse)) {
+      alert(`That is correct! "${userResponse}" is one of my favorite movies! Here is my full list of top ten favorite movies: ${topTenMovies.join(', ')}`);
+      score++;
       break;
-    } else if (guess !== movie && guess) { //checks if guess was not equal to the movie and that there is a string input by user
+    } else {
       alert('That is not correct!');
     }
-    
-    //Once last attempt used, display ran out attempts and who list from array.
+
     if (i === 5) {
-      alert ('You have run out of tries! Here is my full list of top ten favorite movies: ' + topTenMovies.toString() );
+      alert(`You have run out of attempts! Here is my full list of top ten favorite movies: ${topTenMovies.join(', ')}`);
     }
   }
+
+  return score;
 }
-
-// questionSeven();
-
-//TODO: Display name back to user in final message via alert
-// alert(`Thanks for playing the About-Me guessing game ${userName}! You achieved a score of ${score} points! Hope you had fun!`);
 
 const username = welcomeUserToPage();
 playAboutMeGuessingGame(username);
