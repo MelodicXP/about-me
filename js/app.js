@@ -7,7 +7,7 @@ let welcomeUserToPage = () => {
 }
 
 // Function to play a game asking user questions about the developer.
-let playAboutMeGuessingGame = (username) => {
+let playAboutMeGuessingGame = (userName) => {
   let score = 0;
 
   score += askQuestionOneThruFive();
@@ -175,5 +175,30 @@ let askQuestionSeven = () => {
   return score;
 }
 
+const renderTopTenMovies = () => {
+  const topTenMovies = [
+    'The Matrix',
+    'Inception',
+    'Shutter Island',
+    'Good Will Hunting',
+    'Whiplash',
+    'Christmas Vacation',
+    'Blades of Glory',
+    'John Wick (all chapters)',
+    'The Mask',
+    'Grease'
+  ];
+
+  const movieListElement = document.getElementById('topTenMovies');
+  movieListElement.innerHTML = '';
+
+  topTenMovies.forEach((movie) => {
+    const listItem = document.createElement('li');
+    listItem.textContent = movie;
+    movieListElement.appendChild(listItem);
+  });
+}
+
 const username = welcomeUserToPage();
 playAboutMeGuessingGame(username);
+renderTopTenMovies();
